@@ -119,7 +119,7 @@ nav a:focus{
 
 
 /* Step 2a: Write selector/rule property to position the default position for the skip class element*/
-.skip{
+.skip a{
   position: absolute;
   top: -40px;
 }
@@ -127,9 +127,8 @@ nav a:focus{
 
 /* Step 2b: Write selector/rule property to position the skip class element when it is in focus*/
 
-.skip:focus{
+.skip a:focus{
   top: 20px;
-  opacity: 1;
 }
 
 
@@ -142,6 +141,7 @@ nav a:focus{
 
 /* Step 4: Write selector/rule property to style the container */
 .container{
+  display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   gap: 15px;
 }
@@ -152,7 +152,7 @@ first div in the grid  and place it in the grid. */
 .container div:first-child{
   background-image: url("../images/header.jpg");
   min-height: 500px;
-  column-span: all;
+  grid-column: 1/-1;
 }
 
 
@@ -160,27 +160,43 @@ first div in the grid  and place it in the grid. */
  four rows in the grid. */
 
       /*This will be a lot of rules.... but be strategic and combine seletors*/
-.about, .method, .clients, .contact{
-  grid-column: 2/ span 1;
-}
 
 .about{
+  grid-column: 2/ span 1;
   grid-row: 2/3;
 }
 .method{
+  grid-column: 2/ span 1;
   grid-row: 3/4;
 }
 .clients{
+  grid-column: 2/ span 1;
   grid-row: 4/5;
 }
 .contact{
+  grid-column: 2/ span 1;
   grid-row: 5/6;
 }
 .about-image, .method-image, .clients-image, .contact-image{
   grid-column: 1/-1;
   max-height: 600px;
   overflow: hidden;
+}
 
+.about-image{
+  grid-row: 2/3;
+}
+
+.method-image{
+  grid-row: 3/4;
+}
+
+.clients-image{
+  grid-row: 4/5;
+}
+
+.contact-image{
+  grid-row: 5/6;
 }
 
 
@@ -198,7 +214,7 @@ first div in the grid  and place it in the grid. */
 
 @media screen and (min-width: 800px){
 nav{
-  float: right;
+  text-align: right;
   padding: 30px 0px;
 }
 
